@@ -9,4 +9,5 @@
 <p>{{ post.content }}</p>
 <br />
 <a href="{% url 'home' %}">Назад на главную</a>
+<a href="{% url 'post_delete' post.pk %}" style="color: red; margin-left: 15px;">Удалить пост</a>
 {% endblock %}

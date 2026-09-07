@@ -28,3 +28,11 @@ class PostCreateView(CreateView):
     form_class = PostForm
     template_name = 'blog/post_form.html'
     success_url = reverse_lazy('home')
+
+
+def post_delete(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == 'POST':
+        post.delete()
+        return redirect('home')  # перенаправление на главную после удаления
+    return render(request, 'blog/post_confirm_delete.html', {'post': post})
