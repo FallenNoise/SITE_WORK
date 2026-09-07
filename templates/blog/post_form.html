@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}Добавить пост{% endblock %} {% block
+content %}
+<h1>Новая публикация</h1>
+<form method="POST">
+  {% csrf_token %} {% if form.errors %}
+  <div style="color: red"><p>Пожалуйста, исправьте ошибки ниже.</p></div>
+  {% endif %}
+  <p>
+    <label for="{{ form.title.id_for_label }}">Заголовок:</label><br />
+    {{ form.title }}
+  </p>
+  <p>
+    <label for="{{ form.content.id_for_label }}">Текст публикации:</label><br />
+    {{ form.content }}
+  </p>
+  <button type="submit">Опубликовать</button>
+</form>
+{% endblock %}
