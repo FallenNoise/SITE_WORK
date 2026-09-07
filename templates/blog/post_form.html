@@ -1,5 +1,8 @@
-{% extends 'base.html' %} {% block title %}Добавить пост{% endblock %} {% block
-content %}
+{% extends 'base.html' %}
+
+{% block title %}Добавить пост{% endblock %}
+
+{% block content %}
 <h1>Новая публикация</h1>
 <form method="POST">
   {% csrf_token %} {% if form.errors %}
