@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 
 
 def home_page(request):
     posts = Post.objects.all()[:3]
-    return render(request, 'blog/index.html', {'posts': posts})
+    return render(request, 'pages/index.html', {'posts': posts})
 
 
 def post_list(request):
@@ -21,12 +23,8 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
-def post_add(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-    else:
-        form = PostForm()
-    return render(request, 'blog/post_form.html', {'form': form})
+class PostCreateView(CreateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'blog/post_form.html'
+    success_url = reverse_lazy('home')
