@@ -6,7 +6,7 @@ body {
 }
 header,
 footer {
-  background: #333;
+  background: #00a2ff;
   color: #fff;
   padding: 15px;
   text-align: center;
@@ -21,4 +21,14 @@ main {
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
   margin-bottom: 15px;
+}
+a {
+  color: #0076c6; /* Насыщенный сине-голубой цвет для ссылок */
+  text-decoration: none; /* Убирает подчеркивание, если оно не нужно */
+  transition: color 0.2s; /* Плавный переход цвета при наведении */
+}
+
+a:hover {
+  color: #00a2ff; /* Ярко-голубой цвет при наведении курсора (как на полосках) */
+  text-decoration: underline; /* Подчеркивание при наведении */
 }
