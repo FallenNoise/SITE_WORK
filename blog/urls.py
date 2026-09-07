@@ -1,5 +1,7 @@
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    # Пути будут наполняться по мере создания вьюшек
+    path('', views.home_page, name='home'),
+    path('posts/', views.post_list, name='post_list'),
 ]
